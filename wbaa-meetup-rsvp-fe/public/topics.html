@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>World Meetup Trending topics per  Area</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/sockjs-client/sockjs.min.js"></script>
+    <script src="/stomp-websocket/stomp.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <script>
+        var map, stompClient;
+        google.charts.load('current', {
+        'packages':['geochart'],
+        'mapsApiKey': 'AIzaSyAW97u3Uwuy6u1SorbEfXxh4AABcuicGmU'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var chart = new google.visualization.GeoChart(document.getElementById('map'));
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Topic']
+        ]);
+        var socket = new SockJS('http://localhost:5656/meetup');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function(frame) {
+                stompClient.subscribe('/famous/topics', function(message) {
+                    var obj = JSON.parse(message.body);
+                    pushToDataTable(obj.country_code, obj.topic);
+                });
+            });
+
+
+            function pushToDataTable(countrycode, topic) {
+                data.addRows([[countrycode, countrycode +" : "+ topic]]);
+                var options = {};
+                chart.draw(data, options);
+            }
+
+      
+      }
+    </script>
+</script>
+</body>
+</html>
