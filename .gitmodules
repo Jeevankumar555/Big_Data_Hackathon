@@ -1,3 +1,6 @@
 [submodule "wbaa-meetup-rsvp-bE"]
 	path = wbaa-meetup-rsvp-bE
 	url = https://github.com/Jeevankumar555/WBAA_Assignment.git
+[submodule "wbaa-meetup-rsvp-be"]
+	path = wbaa-meetup-rsvp-be
+	url = https://github.com/Jeevankumar555/WBAA_Assignment.git
