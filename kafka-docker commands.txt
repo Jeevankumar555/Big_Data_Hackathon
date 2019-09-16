@@ -1,0 +1,63 @@
+C:/kafka_2.11-2.2.1/bin/windows/zookeeper-server-start.bat C:/kafka_2.11-2.2.1/config/zookeeper.properties 
+
+C:/kafka_2.11-2.2.1/bin/windows/kafka-server-start.bat C:/kafka_2.11-2.2.1/config/server.properties
+
+C:/kafka_2.11-2.2.1/bin/windows/kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic meetup-rsvp
+
+C:/kafka_2.11-2.2.1/bin/windows/kafka-console-producer.bat --broker-list localhost:9092 --topic meetup-rsvp
+
+C:/kafka_2.11-2.2.1/bin/windows/kafka-console-consumer.bat --bootstrap-server  localhost:9092 --topic meetup-rsvp  --from-beginning
+
+C:/kafka_2.11-2.2.1/bin/windows/zookeeper-shell.bat localhost:2181 ls /brokers/ids 
+
+
+C:/kafka_2.11-2.2.1/bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic meetupTopic --from-beginning
+
+bin/kafka-console-producer.sh --broker-list kafka:9092 --topic test
+
+
+
+
+netstat -a | Select-String -Pattern 8080
+
+
+docker :
+docker build -t jeevan/meetup-rsvp-be .
+
+
+docker build -t jeevan/meetup-rsvp-fe .
+
+docker run -p 5555:5555 meetup-rsvp-fe/meetup-rsvp-fe
+
+docker stop 82fb595d88b9
+
+docker container rm 82fb595d88b9
+
+docker container ls -a  --> to check all active and inactive containers
+
+docker image rm image_id
+
+docker ps
+
+docker system prune -a
+
+docker images -f dangling=true
+
+docker rmi $(docker images -a -q)
+
+docker rm $(docker ps -a -f status=exited -q)
+
+docker rm $(docker ps -a -f status=exited -f status=created -q)
+
+docker-compose up -d
+
+docker exec -it 051f62430bfd bash
+
+ng serve --port 5656
+
+
+
+
+
+
+
