@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    restart: always
+    ports:
+    - 2181:2181
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    restart: always
+    ports:
+    - 9092:9092
+    depends_on:
+    - zookeeper
+    links:
+    - zookeeper:zookeeper
+
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "favourite-locations:1:1,trending-topics:1:1"
+
+  meetup-rsvp-be:
+    image: jeevan/meetup-rsvp-be
+    container_name: meetup-rsvp-be
+    ports:
+    - 5656:5656
+    depends_on:
+    - kafka
+    restart: always
+    links:
+    - kafka:kafka
+
+  meetup-rsvp-fe:
+      image: jeevan/meetup-rsvp-fe
+      container_name: meetup-rsvp-fe
+      ports:
+      - 5555:5555
+      depends_on:
+      - meetup-rsvp-be
+      restart: always
+      links:
+      - meetup-rsvp-be:meetup-rsvp-be
