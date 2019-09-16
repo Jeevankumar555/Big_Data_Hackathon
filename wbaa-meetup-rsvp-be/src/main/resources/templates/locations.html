@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>World Meetup Famous Locations Heat Map</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <style>
+            #map {
+                height: 100%;
+            }
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<div id="result"></div>
+
+<script>
+    var map, heatmap, stompClient;
+$(document).ready(function() {
+		var socket = new SockJS('/meetup');
+		stompClient = Stomp.over(socket);
+		stompClient.connect({}, function(frame) {
+			stompClient.subscribe('/famous/locations', function(message) {
+              var obj = JSON.parse(message.body);
+              pushHeatMapData(obj.lat, obj.lon, obj.weight);
+			});
+           });
+                 });
+
+            function pushHeatMapData(lat, lon, weight) {
+                var weightedLocation = {location: new google.maps.LatLng(parseFloat(lat), parseFloat(lon)), weight: parseInt(weight)};
+                heatmap.getData().push(weightedLocation);
+            }
+
+            function initMap() {
+                var latLon = {lat: 0.0, lng: 0.0};
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 3,
+                    center: latLon
+                });
+
+                heatmap = new google.maps.visualization.HeatmapLayer({
+                              data: [],
+                              map: map
+                            });
+
+            }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAW97u3Uwuy6u1SorbEfXxh4AABcuicGmU&libraries=visualization&callback=initMap">
+</script>
+
+</body>
+</html>
