@@ -1,4 +1,6 @@
-C:/kafka_2.11-2.2.1/bin/windows/zookeeper-server-start.bat C:/kafka_2.11-2.2.1/config/zookeeper.properties 
+Windows :
+
+C:/kafka_2.11-2.2.1/bin/windows/zookeeper-server-start.bat C:/kafka_2.11-2.2.1/config/zookeeper.properties
 
 C:/kafka_2.11-2.2.1/bin/windows/kafka-server-start.bat C:/kafka_2.11-2.2.1/config/server.properties
 
@@ -14,6 +16,20 @@ C:/kafka_2.11-2.2.1/bin/windows/zookeeper-shell.bat localhost:2181 ls /brokers/i
 C:/kafka_2.11-2.2.1/bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic meetupTopic --from-beginning
 
 bin/kafka-console-producer.sh --broker-list kafka:9092 --topic test
+
+
+
+MAC:
+
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+bin/kafka-server-start.sh config/server.properties
+
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic favourite-locations
+
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic trending-topics
+
 
 
 

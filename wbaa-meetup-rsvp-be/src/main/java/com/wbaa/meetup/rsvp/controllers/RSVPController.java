@@ -18,4 +18,9 @@ public class RSVPController {
 		return "locations";
 	}
 
+	@GetMapping("/topics")
+	public String topics(Model model) {
+		return "topics";
+	}
+
 }
