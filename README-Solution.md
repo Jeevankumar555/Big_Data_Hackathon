@@ -22,10 +22,10 @@
 
 `` Steps to run the application `` :
 
-1. Unzip the WBAA-Assignment.zip , to see two folders ``wbaa-meetup-rsvp-fe`` & ``wbaa-meetup-rsvp-be``
-2. Go to FE NodeJs App by ``cd wbaa-meetup-rsvp-fe`` 
+1. Clone Big_Data_Hackathon repo to see two folders ``hack-meetup-rsvp-fe`` & ``hack-meetup-rsvp-be``
+2. Go to FE NodeJs App by ``cd hack-meetup-rsvp-fe`` 
 3. Build the frontend image using `` docker build -t jeevan/meetup-rsvp-fe . `` ( don't worry about the npm ``WARN`` logs), when build succeeds
-4. Go back to Spring boot App by ``cd ../wbaa-meetup-rsvp-be``
+4. Go back to Spring boot App by ``cd ../hack-meetup-rsvp-be``
 5. Do`` mvn clean package`` to get spring boot application executable Jar , when build succeeds
 6. Build the backend image using `` docker build -t jeevan/meetup-rsvp-be . `` , when build succeeds
 7. Compose the set of images mentioned in `docker-compose.yml` file in current folder

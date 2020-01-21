@@ -1,0 +1,5 @@
+/.idea/
+/wbaa-meetup-rsvp-be/target/
+/wbaa-meetup-rsvp-be/rsvp-meetup.iml
+/wbaa-meetup-rsvp-fe/.idea/sonarlint/issuestore/
+/wbaa-meetup-rsvp-fe/.idea/google-java-format.xml
