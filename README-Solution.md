@@ -1,5 +1,5 @@
 
-#WBAA-Assignment 
+#Big_Data_Hackathon 
 
 - A Spring boot application running in a container *(meetup-rsvp-be)* which streams rsvp data from meetup.com
 
