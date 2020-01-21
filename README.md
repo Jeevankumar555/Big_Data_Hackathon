@@ -1,5 +1,5 @@
-# Assessment: Trending Meetup locations 
-At WBAA, we love attending meetups, and also love organising them. We love them so much we are willing to relocate for them. With the huge amount of meetups taking place on a daily basis, it can be hard to pinpoint where to fly to next. Therefore, for this assessment, you will build a distributable solution to discover trending Meetup locations. 
+# Big Data Hackathon: Trending Meetup locations 
+we love attending meetups, and also love organising them. We love them so much we are willing to relocate for them. With the huge amount of meetups taking place on a daily basis, it can be hard to pinpoint where to fly to next. Therefore, for this assessment, you will build a distributable solution to discover trending Meetup locations. 
 
 ## Assignment
 The assignment is to create a back-end and front-end application which can retrieve, process and display the most popular meetup locations. For this, we ask you to connect to the meetup.com [RSVP stream](http://meetup.github.io/stream/rsvpTicker/). An RSVP to a meetup is a sign that a person will be attending a meetup (and thus indicates interest in a topic). Meetup has a nice example web page where you can see RSVP's arriving in real-time [here](http://meetup.github.io/stream/rsvpTicker/)
