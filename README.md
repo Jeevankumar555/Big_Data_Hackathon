@@ -1,8 +1,8 @@
 # Big Data Hackathon: Trending Meetup locations 
 we love attending meetups, and also love organising them. We love them so much we are willing to relocate for them. With the huge amount of meetups taking place on a daily basis, it can be hard to pinpoint where to fly to next. Therefore, for this assessment, you will build a distributable solution to discover trending Meetup locations. 
 
-## Assignment
-The assignment is to create a back-end and front-end application which can retrieve, process and display the most popular meetup locations. For this, we ask you to connect to the meetup.com [RSVP stream](http://meetup.github.io/stream/rsvpTicker/). An RSVP to a meetup is a sign that a person will be attending a meetup (and thus indicates interest in a topic). Meetup has a nice example web page where you can see RSVP's arriving in real-time [here](http://meetup.github.io/stream/rsvpTicker/)
+## Hackathon
+The hackathon is to create a back-end and front-end application which can retrieve, process and display the most popular meetup locations. For this, we ask you to connect to the meetup.com [RSVP stream](http://meetup.github.io/stream/rsvpTicker/). An RSVP to a meetup is a sign that a person will be attending a meetup (and thus indicates interest in a topic). Meetup has a nice example web page where you can see RSVP's arriving in real-time [here](http://meetup.github.io/stream/rsvpTicker/)
 
 ## Implementation
 Although we tend to use JVM-oriented languages and while we appreciate people straying off the beaten path, for this assignment we will limit the implementation language of the back-end to any strongly and statically typed language.
@@ -15,7 +15,7 @@ How you decide to set it up is completely up to you, but we would like to see th
 We ask you to create a solution which is built with scalability in mind and adheres to the [Reactive Manifesto](https://www.reactivemanifesto.org/).
 
 ## Data
-We have prepared a small [sample set](meetup.json) of data for you to work with. This data is in the format delivered by the [Meetup Stream API](https://www.meetup.com/meetup_api/docs/stream/2/rsvps). The sample set is a json file containing a single RSVP 'message' per line.
+This data is in the format delivered by the [Meetup Stream API](https://www.meetup.com/meetup_api/docs/stream/2/rsvps). The sample set is a json file containing a single RSVP 'message' per line.
 A single RSVP looks like this (but without the line-breaks and pretty formatting):
 ```
 {
@@ -113,7 +113,7 @@ A single RSVP looks like this (but without the line-breaks and pretty formatting
 __IMPORTANT__
 As this is data from the real world, you may find imperfections in it. We used the Meetup API to collect the data, so you may find unexpected line-endings, or incomplete json objects. Be sure to handle these kind of anomalies!
 
-## Bonus
+## Bonus steps
 Some ideas we have about extending the base assignment:
  - a Dockerized solution
  - persisting data

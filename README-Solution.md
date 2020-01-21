@@ -45,3 +45,7 @@ But as in requirements it was mentioned to make separate FE and BE apps.
 - persist data in DB ( like mongo Db or cassandra )
 
 
+# Stack & Flow diagram :
+[Flow Diagram](demo/demo.pdf)
+
+
