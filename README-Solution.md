@@ -1,5 +1,5 @@
 
-#Big_Data_Hackathon 
+## Big_Data_Hackathon 
 
 - A Spring boot application running in a container *(meetup-rsvp-be)* which streams rsvp data from meetup.com
 
@@ -36,7 +36,7 @@
 11. ``docker-compose down`` to remove them
 
 
-#Appendix :
+## Appendix :
 - We can also make the Front end served from spring boot app itself using thymeleaf templates by using webSocketJS and stomp protocol dependencies to get the real time data.
 But as in requirements it was mentioned to make separate FE and BE apps.
 - For example hit and check ``http://localhost:5656/locations`` or `` http://localhost:5656/rsvp``( to access from BE container exposing thymeleaf templates) 
@@ -45,7 +45,7 @@ But as in requirements it was mentioned to make separate FE and BE apps.
 - persist data in DB ( like mongo Db or cassandra )
 
 
-# Stack & Flow diagram :
+## Stack & Flow diagram :
 [Flow Diagram](demo/demo.pdf)
 
 
